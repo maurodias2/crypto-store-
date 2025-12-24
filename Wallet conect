@@ -1,0 +1,18 @@
+// Conectar Wallet
+document.getElementById('connectWallet').addEventListener('click', async function() {
+  const provider = new WalletConnectProvider.default({
+    rpc: { 1: "https://mainnet.infura.io/v3/SEU_INFURA_ID" }
+  });
+  await provider.enable();
+  const web3 = new Web3(provider);
+  const accounts = await web3.eth.getAccounts();
+  alert(`Wallet conectada: ${accounts[0]}`);
+});
+
+// Botões de compra (simulação)
+const botoes = document.querySelectorAll('.comprar');
+botoes.forEach(botao => {
+  botao.addEventListener('click', () => {
+    alert('Pagamento simulado. Aqui você pode integrar transação real.');
+  });
+});
